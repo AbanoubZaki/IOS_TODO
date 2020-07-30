@@ -12,7 +12,7 @@ import Combine
 
 class TodoListPresenter: ObservableObject {
     private let interactor: TodoListInteractor
-    private let router = TodoListRouter()
+    private var router = TodoListRouter()
     
     @Published var todos: [TodoItem] = []
     private var cancellables = Set<AnyCancellable>()

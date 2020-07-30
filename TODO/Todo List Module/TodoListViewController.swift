@@ -44,6 +44,13 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        data.load { message, todos in
+            if message == "success" {
+                self.tableView.reloadData()
+            } else {
+                print ("Error in loading data")
+            }
+        }
     }
 }
 

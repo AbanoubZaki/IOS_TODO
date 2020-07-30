@@ -9,7 +9,7 @@
 import Foundation
 
 class TodoListInteractor {
-    let model = TodoList.getInstance()
+    var model = TodoList.getInstance()
     
     func addNewTodo(todo: TodoItem) {
         model.addNewTodo(todo: todo)
@@ -18,5 +18,5 @@ class TodoListInteractor {
     func deleteTodo(todo: TodoItem) {
         model.removeTodo(todo: todo)
     }
-    
+
 }

@@ -25,8 +25,8 @@ class TodoListPresenter: ObservableObject {
         router.makeNewTodoView(viewController: viewController)
     }
     
-    func openTodoDetailsView(viewController: UIViewController, for todo: TodoItem) {
-        router.makeTodoDetailsView(viewController: viewController, for: todo)
+    func openTodoDetailsView(viewController: UIViewController, for todo: TodoItem, index: IndexPath) {
+        router.makeTodoDetailsView(viewController: viewController, for: todo, index: index)
     }
     
     func addNewTodo(todo: TodoItem) {

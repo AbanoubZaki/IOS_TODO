@@ -11,15 +11,15 @@ import UIKit
 
 class TodoDetailsViewController: UITableViewController {
     
+    private var data = TodoList.getInstance()
+    var currentIndexPath: IndexPath?
     var todo: TodoItem?
-    
+    private var presenter = TodoDetailsPresenter()
+ 
     @IBOutlet weak var todoNameTextField: UITextField?
     
     @IBOutlet weak var todoDescriptionTextView: UITextView?
     
-    @IBAction func saveChangesButton(_ sender: UIButton) {
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setTodoDetails(todo: self.todo!)
@@ -29,5 +29,13 @@ class TodoDetailsViewController: UITableViewController {
     func setTodoDetails(todo: TodoItem) {
         self.todoNameTextField?.text = todo.name
         self.todoDescriptionTextView?.text = todo.description
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
+        if segue.identifier == "SaveTodoChanges",
+            let todoName = todoNameTextField!.text,
+            let todoDescription = todoDescriptionTextView!.text {
+            todo = TodoItem(name: todoName, description: todoDescription)
+        }
     }
 }

@@ -79,7 +79,6 @@ class TodoList {
           } else {
             self?.todos[indexPath.row].name = newName
             self?.todos[indexPath.row].description = newDescription
-            print("Data saved successfully!")
             completion("success", self!.todos)
           }
         }

@@ -31,10 +31,10 @@ class TodoListViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let todo = data.todo(at: indexPath)
-        presenter.openTodoDetailsView(viewController: self, for: todo)
+        presenter.openTodoDetailsView(viewController: self, for: todo, index: indexPath)
     }
     
     @IBAction func openNewTodoView(_ sender: UIBarButtonItem) {
@@ -66,6 +66,26 @@ extension TodoListViewController {
         data.addNewTodo(todo: todo)
         DispatchQueue.main.async{
             self.tableView.reloadData()
+        }
+    }
+    
+    @IBAction func savetodoChanges(_ segue: UIStoryboardSegue) {
+        
+        print("entered the back code")
+        guard
+            let todoDetailsViewController = segue.source as? TodoDetailsViewController,
+            let todo = todoDetailsViewController.todo,
+            let index = todoDetailsViewController.currentIndexPath
+            else {return}
+        data.editTodo(at: index, newName: todo.name, newDescription: todo.description) { message, todos in
+            if message == "success" {
+                print ("Todo updated successfully")
+                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                }
+            } else {
+                print ("Error in updating todo")
+            }
         }
     }
 }

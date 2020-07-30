@@ -10,8 +10,10 @@ import Foundation
 
 class TodoDetailsInteractor {
     
+    var data: TodoList
+    
     init() {
-        
+        data = TodoList.getInstance()
     }
     
 }

@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
+
+class TodoDetailsPresenter: ObservableObject {
+    private let interactor: TodoDetailsInteractor
+        
+    init() {
+        self.interactor = TodoDetailsInteractor()
+    }
+
+    
+}

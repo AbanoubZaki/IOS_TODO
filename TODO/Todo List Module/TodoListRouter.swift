@@ -17,11 +17,11 @@ class TodoListRouter {
         viewController.present(addNewTodo, animated: true, completion: nil)
     }
     
-    func makeTodoDetailsView(viewController: UIViewController, for todo: TodoItem) {
+    func makeTodoDetailsView(viewController: UIViewController, for todo: TodoItem, index: IndexPath) {
         let main = UIStoryboard(name: "Main", bundle: nil)
         let todoDetails = main.instantiateViewController(withIdentifier: "todoDetails") as! TodoDetailsViewController
         todoDetails.todo = todo
-        
+        todoDetails.currentIndexPath = index
         viewController.present(todoDetails, animated: true, completion: nil)
     }
     

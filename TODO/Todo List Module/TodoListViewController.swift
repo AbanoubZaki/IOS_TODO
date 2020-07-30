@@ -38,14 +38,13 @@ class TodoListViewController: UITableViewController {
         let color: UIColor = todo.checked ? .blue : .systemGreen
         let modifyAction = UIContextualAction(style: .normal, title:  title, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             self.data.changeChackMark(index: indexPath)
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath) as! TodoItemCell
-            if cell.accessoryType == .checkmark {
-                cell.accessoryType = .none
+            if todo.checked {
+                print("1")
+                tableView.cellForRow(at: indexPath)!.accessoryType = .none
             } else {
-                cell.accessoryType = .checkmark
+                print("2")
+                tableView.cellForRow(at: indexPath)!.accessoryType = .checkmark
             }
-            
-            print("Update action ...")
             success(true)
         })
         modifyAction.image = UIImage(named: "hammer")

@@ -18,4 +18,10 @@ struct TodoItem {
         self.name = name
         self.description = description
     }
+    
+    init(name: String, description: String, id: String) {
+        self.id = id
+        self.name = name
+        self.description = description
+    }
 }

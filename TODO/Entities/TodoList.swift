@@ -26,7 +26,23 @@ class TodoList {
     }
     
     func load() {
-        
+        DispatchQueue.global().async {
+            self.ref.child("todos").observeSingleEvent(of: .value){ (snapshot) in
+               for child in snapshot.children.allObjects as! [DataSnapshot]{
+                   
+                   let id = child.key
+                   let todosRef = self.ref.child("todos").child(id)
+                   
+                   todosRef.observeSingleEvent(of: .value, with: { (todoSnapshot) in
+                       let todo = todoSnapshot.value as? NSDictionary
+                       let name = todo!["name"] as? String
+                       let description = todo!["description"] as? String
+                       self.todos.append(TodoItem(name: name!, description: description!, id: id))
+                   })
+
+               }
+            }
+        }
     }
     
     func getCount() -> Int {
@@ -41,6 +57,7 @@ class TodoList {
     
     
     func removeTodo(todo: TodoItem) {
+        ref.child("todos").child(todo.id).removeValue()
         todos.removeAll {$0.id == todo.id}
     }
     

@@ -83,4 +83,10 @@ class TodoList {
           }
         }
     }
+    
+    func changeChackMark(index: IndexPath) {
+        todos[index.row].checked.toggle()
+        
+        self.ref.child("todos").child(todos[index.row].id).updateChildValues(["checked": todos[index.row].checked])
+    }
 }

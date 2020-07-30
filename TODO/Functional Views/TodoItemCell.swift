@@ -18,9 +18,13 @@ class TodoItemCell: UITableViewCell {
     var todo: TodoItem? {
       didSet {
         guard let todo = todo else { return }
-
         nameLabel.text = todo.name
         descriptionLabel.text = todo.description
+        if todo.checked {
+            self.accessoryType = .checkmark
+        } else {
+            self.accessoryType = .none
+        }
       }
     }
 }

@@ -21,7 +21,7 @@ class TodoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath) as! TodoItemCell
         cell.todo = data.todo(at: indexPath)
-        
+    
         return cell
     }
     
@@ -30,6 +30,28 @@ class TodoListViewController: UITableViewController {
             presenter.deleteTodo(todo : (data.todo(at: indexPath)))
             self.tableView.reloadData()
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let todo = data.todo(at: indexPath)
+        let title = todo.checked ? "Uncheck" : "Check";
+        let color: UIColor = todo.checked ? .blue : .systemGreen
+        let modifyAction = UIContextualAction(style: .normal, title:  title, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            self.data.changeChackMark(index: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath) as! TodoItemCell
+            if cell.accessoryType == .checkmark {
+                cell.accessoryType = .none
+            } else {
+                cell.accessoryType = .checkmark
+            }
+            
+            print("Update action ...")
+            success(true)
+        })
+        modifyAction.image = UIImage(named: "hammer")
+        modifyAction.backgroundColor = color
+        
+        return UISwipeActionsConfiguration(actions: [modifyAction])
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

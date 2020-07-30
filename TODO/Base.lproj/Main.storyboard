@@ -162,6 +162,7 @@
                                 <connections>
                                     <outlet property="descriptionLabel" destination="4qz-gl-0xX" id="dYB-AE-nSM"/>
                                     <outlet property="nameLabel" destination="IwT-K7-lTC" id="4yX-BO-uZ3"/>
+                                    <outletCollection property="gestureRecognizers" destination="dnF-vO-buu" appends="YES" id="ez1-kM-kTa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -179,6 +180,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="js0-z7-Kss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="dnF-vO-buu"/>
             </objects>
             <point key="canvasLocation" x="978" y="139"/>
         </scene>

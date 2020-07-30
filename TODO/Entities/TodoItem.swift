@@ -9,19 +9,22 @@
 import Foundation
 
 struct TodoItem {
-    let name: String
-    let description: String
-    let id: String
+    var name: String
+    var description: String
+    var checked: Bool
+    var id: String
 
     init(name: String, description: String) {
         self.id = UUID().uuidString
         self.name = name
         self.description = description
+        self.checked = false
     }
     
-    init(name: String, description: String, id: String) {
+    init(name: String, description: String, id: String, checked: Bool) {
         self.id = id
         self.name = name
         self.description = description
+        self.checked = checked
     }
 }

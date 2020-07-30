@@ -12,16 +12,13 @@ import Combine
 
 class TodoListPresenter: ObservableObject {
     private let interactor: TodoListInteractor
-    private var router = TodoListRouter()
+    private var router: TodoListRouter
     
-    @Published var todos: [TodoItem] = []
-    private var cancellables = Set<AnyCancellable>()
+//    @Published var todos: [TodoItem] = []
     
     init() {
         self.interactor = TodoListInteractor()
-        interactor.model.$todos
-        .assign(to: \.todos, on: self)
-        .store(in: &cancellables)
+        self.router = TodoListRouter()
     }
 
     func openNewTodoView(viewController: UIViewController) {

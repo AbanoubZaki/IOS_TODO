@@ -15,7 +15,7 @@ class TodoListViewController: UITableViewController {
     var presenter = TodoListPresenter()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.todos.count
+        return data.getCount()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -13,17 +13,21 @@ class TodoDetailsViewController: UITableViewController {
     
     var todo: TodoItem?
     
-    @IBOutlet weak var todoNameLabel: UILabel?
-    @IBOutlet weak var todoDescriptionLabel: UILabel?
+    @IBOutlet weak var todoNameTextField: UITextField?
     
+    @IBOutlet weak var todoDescriptionTextView: UITextView?
+    
+    @IBAction func saveChangesButton(_ sender: UIButton) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLabels(todo: self.todo!)
-    }
-
-    func setLabels(todo: TodoItem) {
-        self.todoNameLabel?.text = todo.name
-        self.todoDescriptionLabel?.text = todo.description
+        setTodoDetails(todo: self.todo!)
+        self.todoDescriptionTextView?.becomeFirstResponder()
     }
     
+    func setTodoDetails(todo: TodoItem) {
+        self.todoNameTextField?.text = todo.name
+        self.todoDescriptionTextView?.text = todo.description
+    }
 }

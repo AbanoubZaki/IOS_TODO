@@ -37,7 +37,9 @@ class TodoList {
                         let todo = todoSnapshot.value as? NSDictionary
                         let name = todo!["name"] as? String
                         let description = todo!["description"] as? String
-                        self.todos.append(TodoItem(name: name!, description: description!, id: id))
+                        let checked = todo!["checked"] as? Bool
+                        self.todos.append(TodoItem(name: name!, description: description!,
+                                                   id: id, checked: checked!))
                         counter -= 1
                         if counter == 0 {
                             completion("success", self.todos)
@@ -54,14 +56,14 @@ class TodoList {
     }
     
     func addNewTodo(todo: TodoItem) {
-        self.ref.child("todos").child(todo.id).updateChildValues(["name": todo.name,"description": todo.description])
+        self.ref.child("todos").child(todo.id).updateChildValues(["name": todo.name,"description": todo.description, "checked": false])
         
         todos.insert(todo, at: 0)
     }
     
     
     func removeTodo(todo: TodoItem) {
-        ref.child("todos").child(todo.id).removeValue()
+        self.ref.child("todos").child(todo.id).removeValue()
         todos.removeAll {$0.id == todo.id}
     }
     
@@ -69,8 +71,17 @@ class TodoList {
         todos[indexPath.row]
     }
     
-    //    func append(todo: TodoItem, to tableView: UITableView) {
-    //      todos.insert(todo, at: 0)
-    //      tableView.insertRows(at: [IndexPath(row: todos.count-1, section: 0)], with: .automatic)
-    //    }
+    func editTodo(at indexPath: IndexPath, newName: String, newDescription: String, completion: @escaping (_ message: String, _ todos: [TodoItem]) -> Void) {
+        ref.child("todos").child(todos[indexPath.row].id).updateChildValues(["name": newName, "description": newDescription]) { [weak self]
+          (error:Error?, ref:DatabaseReference) in
+          if let error = error {
+            print("Todo couldn't be updated: \(error).")
+          } else {
+            self?.todos[indexPath.row].name = newName
+            self?.todos[indexPath.row].description = newDescription
+            print("Data saved successfully!")
+            completion("success", self!.todos)
+          }
+        }
+    }
 }

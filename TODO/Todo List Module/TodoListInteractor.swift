@@ -10,7 +10,7 @@ import Foundation
 
 class TodoListInteractor {
     var model = TodoList.getInstance()
-    
+		    
     func addNewTodo(todo: TodoItem) {
         model.addNewTodo(todo: todo)
     }

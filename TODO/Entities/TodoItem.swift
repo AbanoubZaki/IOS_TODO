@@ -11,10 +11,10 @@ import Foundation
 struct TodoItem {
     let name: String
     let description: String
-    let id: UUID
+    let id: String
 
     init(name: String, description: String) {
-        self.id = UUID()
+        self.id = UUID().uuidString
         self.name = name
         self.description = description
     }

@@ -38,8 +38,9 @@ class TodoList {
                         let name = todo!["name"] as? String
                         let description = todo!["description"] as? String
                         let checked = todo!["checked"] as? Bool
+                        let imageURl = todo!["imageURL"] as? String
                         self.todos.append(TodoItem(name: name!, description: description!,
-                                                   id: id, checked: checked!))
+                                                   id: id, checked: checked!, imageURL: imageURl!))
                         counter -= 1
                         if counter == 0 {
                             completion("success", self.todos)
@@ -56,7 +57,7 @@ class TodoList {
     }
     
     func addNewTodo(todo: TodoItem) {
-        self.ref.child("todos").child(todo.id).updateChildValues(["name": todo.name,"description": todo.description, "checked": false])
+        self.ref.child("todos").child(todo.id).updateChildValues(["name": todo.name,"description": todo.description, "checked": false, "imageURL": todo.imageURL])
         
         todos.insert(todo, at: 0)
     }

@@ -59,7 +59,7 @@ class TodoList {
     func addNewTodo(todo: TodoItem) {
         self.ref.child("todos").child(todo.id).updateChildValues(["name": todo.name,"description": todo.description, "checked": false, "imageURL": todo.imageURL])
         
-        todos.insert(todo, at: 0)
+        todos.append(todo)
     }
     
     

@@ -42,7 +42,7 @@ class TodoListViewController: UITableViewController {
         let title = todo.checked ? "Uncheck" : "Check";
         let color: UIColor = todo.checked ? .blue : .systemGreen
         let modifyAction = UIContextualAction(style: .normal, title:  title, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            self.data.changeChackMark(index: indexPath)
+            self.data.changeCheckMark(index: indexPath)
             if todo.checked {
                 tableView.cellForRow(at: indexPath)!.accessoryType = .none
 //                let attributeString =  NSMutableAttributedString(string: "Your Text")

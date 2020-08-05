@@ -13,9 +13,7 @@ import Combine
 class TodoListPresenter: ObservableObject {
     private let interactor: TodoListInteractor
     private var router: TodoListRouter
-    
-//    @Published var todos: [TodoItem] = []
-    
+        
     init() {
         self.interactor = TodoListInteractor()
         self.router = TodoListRouter()

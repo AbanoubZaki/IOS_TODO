@@ -240,11 +240,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <gestureRecognizers/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="maG-V7-9VI">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Todo Details" id="2av-pR-Cvr">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="done" id="0gz-OF-iBp">
+                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="closeButton:" destination="Xgf-XF-Wk1" id="o2F-qE-8Ni"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <sections>
                             <tableViewSection headerTitle="" id="gyD-HO-ArK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IRg-Ea-0UD">
-                                        <rect key="frame" x="20" y="39.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="83.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IRg-Ea-0UD" id="oGB-6w-xY2">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -269,7 +283,7 @@
                             <tableViewSection headerTitle="TODO Description" id="3tS-rD-23U">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="300" id="QoA-J7-a8b">
-                                        <rect key="frame" x="20" y="139" width="374" height="300"/>
+                                        <rect key="frame" x="20" y="183" width="374" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QoA-J7-a8b" id="Gaa-dI-1GC">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
@@ -296,7 +310,7 @@
                             <tableViewSection headerTitle="" id="rmG-sy-8v4">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="300" id="Z0g-R0-hUF">
-                                        <rect key="frame" x="20" y="479" width="374" height="300"/>
+                                        <rect key="frame" x="20" y="523" width="374" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z0g-R0-hUF" id="4Ps-xv-9Gn">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
@@ -334,7 +348,7 @@
                             <tableViewSection headerTitle="" id="NEa-bO-3ZN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="3Kj-HN-kbu">
-                                        <rect key="frame" x="20" y="819" width="374" height="60"/>
+                                        <rect key="frame" x="0.0" y="863" width="374" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Kj-HN-kbu" id="Eny-QI-jBG">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -345,7 +359,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Save Changes"/>
                                                     <connections>
-                                                        <segue destination="ekw-bQ-h6H" kind="unwind" identifier="SaveTodoChanges" unwindAction="savetodoChanges:" id="4QA-nr-NR7"/>
+                                                        <action selector="saveChangesButton:" destination="Xgf-XF-Wk1" eventType="touchUpInside" id="M0z-Nv-eCq"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -365,7 +379,6 @@
                             <outlet property="delegate" destination="Xgf-XF-Wk1" id="OCa-0h-lcv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aTH-KI-i12"/>
                     <connections>
                         <outlet property="imageView" destination="mqP-hf-FCF" id="VUB-Jh-a76"/>
                         <outlet property="indicatorView" destination="3kb-2r-dZq" id="dEK-9x-9IY"/>
@@ -375,9 +388,8 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRY-XL-yk5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="ekw-bQ-h6H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2190" y="751"/>
+            <point key="canvasLocation" x="3100.0000000000005" y="750.66964285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MKU-ov-fP7">

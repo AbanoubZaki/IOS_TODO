@@ -6,14 +6,31 @@
 //  Copyright © 2020 Blink22. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import FirebaseStorage
 
 class TodoDetailsInteractor {
     
-    var data: TodoList
+    private var model: TodoList!
+    private var newTodo: TodoItem!
+    private weak var presenter: TodoDetailsPresenter?
     
     init() {
-        data = TodoList.getInstance()
+        self.model = TodoList.getInstance()
+    }
+    
+    func editTodo(for todo: TodoItem, index: IndexPath, presenter: TodoDetailsPresenter) {
+        self.presenter = presenter
+        print("entered the back code for saving a todo")
+        model.editTodo(at: index, newName: todo.name, newDescription: todo.description) { message, todos in
+            if message == "success" {
+                print ("Todo updated successfully")
+                self.presenter?.todoEditedSuccessfully()
+            } else {
+                print ("Error in updating todo")
+                self.presenter?.todoEditingFailed()
+            }
+        }
     }
     
 }

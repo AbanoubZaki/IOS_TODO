@@ -42,27 +42,6 @@ class TodoListViewController: UITableViewController {
 }
 
 extension TodoListViewController {
-    
-    @IBAction func savetodoChanges(_ segue: UIStoryboardSegue) {
-        
-        print("entered the back code for saving a todo")
-        guard
-            let todoDetailsViewController = segue.source as? TodoDetailsViewController,
-            let todo = todoDetailsViewController.todo,
-            let index = todoDetailsViewController.currentIndexPath
-            else {return}
-            presenter.interactor.model.editTodo(at: index, newName: todo.name, newDescription: todo.description) { message, todos in
-            if message == "success" {
-                print ("Todo updated successfully")
-                self.reloadView()
-            } else {
-                print ("Error in updating todo")
-            }
-        }
-    }
-}
-
-extension TodoListViewController {
     // size of the table
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.interactor.model.getCount()

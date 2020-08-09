@@ -12,11 +12,15 @@ import FirebaseStorage
 
 class TodoDetailsViewController: UITableViewController {
     
-    private var data = TodoList.getInstance()
-    var currentIndexPath: IndexPath?
-    var todo: TodoItem?
-    private var presenter = TodoDetailsPresenter()
+    var currentIndexPath: IndexPath!
+    var todo: TodoItem!
+    private var presenter: TodoDetailsPresenter!
  
+    
+    @IBAction func closeButton(_ sender: UIBarButtonItem) {
+        self.close()
+    }
+    
     @IBOutlet weak var todoNameTextField: UITextField?
     
     @IBOutlet weak var todoDescriptionTextView: UITextView?
@@ -28,9 +32,20 @@ class TodoDetailsViewController: UITableViewController {
     
     @IBOutlet weak var loadingImageIndicator: UIActivityIndicatorView!
     
+    @IBAction func saveChangesButton(_ sender: UIButton) {
+        if let todoName = todoNameTextField!.text,
+            self.isValidTodo(),
+            let todoDescription = todoDescriptionTextView!.text {
+            let editedTodo = TodoItem(name: todoName, description: todoDescription)
+            
+            presenter.editTodo(for: editedTodo, index: self.currentIndexPath)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = TodoDetailsPresenter(view: self, interactor: TodoDetailsInteractor(), router: TodoDetailsRouter())
+
         setTodoDetails(todo: self.todo!)
         self.todoDescriptionTextView?.becomeFirstResponder()
     }
@@ -57,12 +72,27 @@ class TodoDetailsViewController: UITableViewController {
             }
         }
     }
+}
+
+extension TodoDetailsViewController {
+    func close () {
+        self.dismiss(animated: true)
+    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
-        if segue.identifier == "SaveTodoChanges",
-            let todoName = todoNameTextField!.text,
-            let todoDescription = todoDescriptionTextView!.text {
-            todo = TodoItem(name: todoName, description: todoDescription)
+    func isValidTodo () -> Bool {
+        if todoNameTextField!.text!.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            let dialogMessage = UIAlertController(title: "Todo couldn't be edited!",
+                                                  message: "Todo name couldn't be left empty.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                print("Ok button tapped")
+            })
+            
+            dialogMessage.addAction(ok)
+            present(dialogMessage, animated: true, completion: nil)
+            
+            return false
+        } else {
+            return true
         }
     }
 }

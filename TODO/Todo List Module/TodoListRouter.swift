@@ -6,15 +6,12 @@
 //  Copyright © 2020 Blink22. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class TodoListRouter {
     
-    func makeNewTodoView(viewController: UIViewController) {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let addNewTodo = main.instantiateViewController(withIdentifier: "addNewTodo")
-        viewController.present(addNewTodo, animated: true, completion: nil)
+    func makeNewTodoView(viewController: TodoListViewController) {
+        NewTodoRouter().load(viewController: viewController)
     }
     
     func makeTodoDetailsView(viewController: UIViewController, for todo: TodoItem, index: IndexPath) {

@@ -94,105 +94,25 @@
             filePath = "TODO/Todo List Module/TodoListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "TodoListViewController"
-            landmarkType = "21">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "61449802-1CA9-44C5-AA99-42C03043E3EB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TODO/Todo List Module/TodoListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "savetodoDetails(_:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "savetodoChanges(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E039692A-1D09-4DA3-A8A9-AE774AB9DB6B"
+            uuid = "1DCC995C-653A-483A-B115-B43D307EF647"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TODO/Todo List Module/TodoListViewController.swift"
+            filePath = "TODO/Todo Details Module/TodoDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "savetodoDetails(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "04BB150E-F4EF-4AF5-8C5D-DBFB94419205"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TODO/Todo List Module/TodoListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "savetodoDetails(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "04BB150E-F4EF-4AF5-8C5D-DBFB94419205 - c7cfb083cbaa168e"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRStorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TODO.TodoListViewController.savetodoDetails(__C.UIStoryboardSegue) -&gt; ()"
-                  moduleName = "TODO"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/blink22/Documents/Projects/TODO/TODO/Todo%20List%20Module/TodoListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "314">
-               </Location>
-               <Location
-                  uuid = "04BB150E-F4EF-4AF5-8C5D-DBFB94419205 - c397888a8b6a4e89"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRStorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TODO.TodoListViewController.savetodoDetails(__C.UIStoryboardSegue) -&gt; ()"
-                  moduleName = "TODO"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/blink22/Documents/Projects/TODO/TODO/Todo%20List%20Module/TodoListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "234">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "65AC7F4F-9734-4D16-A34F-913A3391D281"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TODO/Todo List Module/TodoListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "savetodoDetails(_:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "setTodoDetails(todo:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

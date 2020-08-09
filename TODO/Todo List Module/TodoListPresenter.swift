@@ -11,7 +11,7 @@ import SwiftUI
 import Combine
 
 class TodoListPresenter: ObservableObject {
-    private let interactor: TodoListInteractor
+    let interactor: TodoListInteractor
     private var router: TodoListRouter
         
     init() {
@@ -19,7 +19,7 @@ class TodoListPresenter: ObservableObject {
         self.router = TodoListRouter()
     }
 
-    func openNewTodoView(viewController: UIViewController) {
+    func openNewTodoView(viewController: TodoListViewController) {
         router.makeNewTodoView(viewController: viewController)
     }
     

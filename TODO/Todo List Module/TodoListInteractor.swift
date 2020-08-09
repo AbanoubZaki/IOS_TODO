@@ -12,7 +12,14 @@ class TodoListInteractor {
     var model = TodoList.getInstance()
 		    
     func addNewTodo(todo: TodoItem) {
-        model.addNewTodo(todo: todo)
+        self.model.addNewTodo(todo: todo) { message, todos in
+            if message == "success" {
+                //call back success
+            } else {
+                //call back failed
+                print ("Error in loading data")
+            }
+        }
     }
     
     func deleteTodo(todo: TodoItem) {

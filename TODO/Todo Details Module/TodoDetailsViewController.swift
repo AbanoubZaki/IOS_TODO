@@ -48,7 +48,7 @@ class TodoDetailsViewController: UITableViewController {
             
             let imageURL = todo.imageURL
             let imageRef = Storage.storage().reference(forURL: imageURL)
-            imageRef.getData(maxSize: 3 * 1024 * 1024) { (data, error) -> Void in
+            imageRef.getData(maxSize: 5 * 1024 * 1024) { (data, error) -> Void in
                 let image = UIImage(data: data!)
                 self.imageView?.image = image
                 

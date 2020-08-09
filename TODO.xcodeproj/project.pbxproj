@@ -26,6 +26,7 @@
 		595455CF24CF6B190017CE3C /* TodoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595455CE24CF6B190017CE3C /* TodoItemCell.swift */; };
 		595455D124CF9A080017CE3C /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595455D024CF9A080017CE3C /* TodoListViewController.swift */; };
 		595D13D224D044E30091860E /* NewTodoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595D13D124D044E30091860E /* NewTodoInteractor.swift */; };
+		597E62D724DC0809007295F7 /* NewTodoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597E62D624DC0809007295F7 /* NewTodoRouter.swift */; };
 		59D6251124D31EFF005E98AF /* TodoDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D6251024D31EFF005E98AF /* TodoDetailsInteractor.swift */; };
 		8171E6053AB4F0058353DEB2 /* Pods_TODO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258D49994F02EE7B3CA61EEB /* Pods_TODO.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		595455CE24CF6B190017CE3C /* TodoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemCell.swift; sourceTree = "<group>"; };
 		595455D024CF9A080017CE3C /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		595D13D124D044E30091860E /* NewTodoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoInteractor.swift; sourceTree = "<group>"; };
+		597E62D624DC0809007295F7 /* NewTodoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoRouter.swift; sourceTree = "<group>"; };
 		59D6251024D31EFF005E98AF /* TodoDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsInteractor.swift; sourceTree = "<group>"; };
 		7191272CF6305F015649E1CC /* Pods-TODO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.debug.xcconfig"; path = "Target Support Files/Pods-TODO/Pods-TODO.debug.xcconfig"; sourceTree = "<group>"; };
 		DEBE7682B2647ACAC035AC71 /* Pods-TODO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODO.release.xcconfig"; path = "Target Support Files/Pods-TODO/Pods-TODO.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				595455BB24CF1BC80017CE3C /* NewTodoViewController.swift */,
 				595455C624CF33AC0017CE3C /* NewTodoPresenter.swift */,
 				595D13D124D044E30091860E /* NewTodoInteractor.swift */,
+				597E62D624DC0809007295F7 /* NewTodoRouter.swift */,
 			);
 			path = "New Todo Module";
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				595455A924CEE8D10017CE3C /* TODO.xcdatamodeld in Sources */,
 				595455C524CF32410017CE3C /* TodoListRouter.swift in Sources */,
 				595455B624CF08F30017CE3C /* TodoItem.swift in Sources */,
+				597E62D724DC0809007295F7 /* NewTodoRouter.swift in Sources */,
 				590FD04E24D1B3EE0096A60D /* TodoDetailsViewController.swift in Sources */,
 				595455C324CF28FA0017CE3C /* TodoListInteractor.swift in Sources */,
 				595455CF24CF6B190017CE3C /* TodoItemCell.swift in Sources */,

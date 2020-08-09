@@ -14,11 +14,15 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="vO1-uQ-xnq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <activityIndicatorView key="tableHeaderView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="3Wf-to-54A">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <sections>
                             <tableViewSection headerTitle="TODO name" id="0Gm-51-sxE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="p4q-bx-e4V">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="99.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p4q-bx-e4V" id="8aC-cM-CAW">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -43,7 +47,7 @@
                             <tableViewSection headerTitle="What to-do?" id="ujr-OS-IK9">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="300" id="G52-7G-0qw">
-                                        <rect key="frame" x="20" y="155" width="374" height="300"/>
+                                        <rect key="frame" x="20" y="199" width="374" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G52-7G-0qw" id="a5A-PP-pED">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
@@ -70,7 +74,7 @@
                             <tableViewSection headerTitle="An Image about your TO-DO (optional)" id="ZMZ-cp-ewR">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="300" id="J1W-Xw-NGO">
-                                        <rect key="frame" x="20" y="511" width="374" height="300"/>
+                                        <rect key="frame" x="20" y="555" width="374" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J1W-Xw-NGO" id="I8V-Z4-ICL">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
@@ -102,23 +106,24 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oDU-Oh-1Td">
                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="1gx-Jt-YhM" kind="unwind" unwindAction="cancelToTodoListViewController:" id="U7X-GA-RqB"/>
+                                <action selector="cancelButton:" destination="Qhm-A5-sUs" id="qXd-TZ-ysO"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="v6D-G2-kMw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="O7z-Yl-2l2">
+                            <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="1gx-Jt-YhM" kind="unwind" identifier="SaveTodoDetails" unwindAction="savetodoDetails:" id="VRR-l8-gkR"/>
+                                <action selector="addNewTodoButton:" destination="Qhm-A5-sUs" id="5au-57-SaH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addNewTodoIndicator" destination="3Wf-to-54A" id="U4f-lG-ahR"/>
                         <outlet property="descriptionTextView" destination="FSB-t9-MQJ" id="EVR-SM-7YH"/>
                         <outlet property="imageView" destination="OfX-bk-naU" id="9qW-ed-760"/>
                         <outlet property="nameTextField" destination="NgL-SU-aBH" id="Bf6-HQ-Y4k"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jeM-RV-QTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="1gx-Jt-YhM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3112" y="-251"/>
         </scene>
@@ -203,7 +208,6 @@
                                 <connections>
                                     <outlet property="descriptionLabel" destination="4qz-gl-0xX" id="dYB-AE-nSM"/>
                                     <outlet property="nameLabel" destination="IwT-K7-lTC" id="4yX-BO-uZ3"/>
-                                    <outletCollection property="gestureRecognizers" destination="dnF-vO-buu" appends="YES" id="ez1-kM-kTa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -225,7 +229,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="js0-z7-Kss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="dnF-vO-buu"/>
             </objects>
             <point key="canvasLocation" x="978" y="139"/>
         </scene>

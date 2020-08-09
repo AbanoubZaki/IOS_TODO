@@ -26,6 +26,7 @@ class TodoList {
     
     func load(completion: @escaping (_ message: String, _ todos: [TodoItem]) -> Void) {
         DispatchQueue.global().async {
+            self.todos.removeAll()
             self.ref.child("todos").observeSingleEvent(of: .value){ (snapshot) in
                 var counter = 0
                 for child in snapshot.children.allObjects as! [DataSnapshot]{
@@ -56,10 +57,17 @@ class TodoList {
         return todos.count
     }
     
-    func addNewTodo(todo: TodoItem) {
-        self.ref.child("todos").child(todo.id).updateChildValues(["name": todo.name,"description": todo.description, "checked": false, "imageURL": todo.imageURL])
-        
-        todos.append(todo)
+    func addNewTodo(todo: TodoItem, completion: @escaping (_ message: String, _ todos: [TodoItem]) -> Void) {
+        self.ref.child("todos").child(todo.id).updateChildValues(["name": todo.name,"description": todo.description, "checked": false, "imageURL": todo.imageURL]) { [weak self]
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("Todo couldn't be updated: \(error).")
+            } else {
+                self?.todos.append(todo)
+                print(String(self!.getCount()) + "from add todo")
+                completion("success", self!.todos)
+            }
+        }
     }
     
     
